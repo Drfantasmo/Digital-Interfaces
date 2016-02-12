@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "digitalinterfaces",
+  "name": "Digital Interfaces",
+  "description": "Add-on for Computercraft to allow complex networking of inventories through computers.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://github.com/Drfantasmo/Digital-Interfaces",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Dr_fantasmo"],
+  "credits": "",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
