@@ -13,7 +13,8 @@ public class DIItems {
 	public static Item screwdriver_item;
 
 	public static void preInit() {
-		screwdriver_item = new ItemScrewdriver().setUnlocalizedName("screwdriver_item").setCreativeTab(DigitalInterfacesMod.diTab);
+		screwdriver_item = new ItemScrewdriver().setUnlocalizedName("screwdriver_item")
+				.setCreativeTab(DigitalInterfacesMod.diTab);
 	}
 
 	public static void register() {

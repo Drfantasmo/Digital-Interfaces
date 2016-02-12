@@ -9,7 +9,10 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import us.fantasmo.digitalinterfaces.blocks.BlockPeripheralFrame;
+import us.fantasmo.digitalinterfaces.init.DIBlocks;
 import us.fantasmo.digitalinterfaces.init.DIItems;
+import us.fantasmo.digitalinterfaces.init.DITileEntities;
 import us.fantasmo.digitalinterfaces.proxy.CommonProxy;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, dependencies = Reference.DEPENDENCIES)
@@ -19,7 +22,7 @@ public class DigitalInterfacesMod {
 	public static CommonProxy proxy;
 
 	public static DigitalInterfacesMod instance;
-	
+
 	public static final DITab diTab = new DITab("tabDigitalInterfaces");
 
 	public DigitalInterfacesMod() {
@@ -29,7 +32,10 @@ public class DigitalInterfacesMod {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		DIItems.preInit();
+		DIBlocks.preInit();
 		DIItems.register();
+		DIBlocks.register();
+		DITileEntities.register();
 	}
 
 	@EventHandler
@@ -51,8 +57,7 @@ public class DigitalInterfacesMod {
 			Class computerCraft = Class.forName("dan200.computercraft.ComputerCraft");
 			Method computerCraft_registerPeripheralProvider = computerCraft.getMethod("registerPeripheralProvider",
 					new Class[] { Class.forName("dan200.computercraft.api.peripheral.IPeripheralProvider") });
-			// computerCraft_registerPeripheralProvider.invoke(null,
-			// BlockFrame.instance);
+			computerCraft_registerPeripheralProvider.invoke(null, BlockPeripheralFrame.instance);
 		} catch (Exception e) {
 
 		}
