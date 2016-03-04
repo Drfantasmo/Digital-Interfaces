@@ -2,6 +2,8 @@ package us.fantasmo.digitalinterfaces.blocks;
 
 import java.util.List;
 
+import com.teambr.bookshelf.common.tiles.traits.Inventory;
+
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -19,8 +21,10 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import us.fantasmo.digitalinterfaces.Reference;
 import us.fantasmo.digitalinterfaces.items.ItemScrewdriver;
 import us.fantasmo.digitalinterfaces.network.ICableConnector;
 import us.fantasmo.digitalinterfaces.tileentity.TileEntityDIWire;
@@ -44,23 +48,6 @@ public class BlockDIWire extends BlockFrame implements ICableConnector, ITileEnt
 				.withProperty(NORTH, false));
 	}
 
-	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
-			EnumFacing side, float hitX, float hitY, float hitZ) {
-		if (worldIn.isRemote) {
-			ItemStack stack = playerIn.getCurrentEquippedItem();
-			if (stack != null) {
-				if (stack.getItem() instanceof ItemScrewdriver) {
-					TileEntityDIWire t = (TileEntityDIWire) worldIn.getTileEntity(pos);
-					t.setEnabledOnSide(side, !t.isEnabledOnSide(side));
-					playerIn.addChatMessage(new ChatComponentText("Digital Wire: "
-							+ TileEntityDIWire.SIDES[side.ordinal()] + " : " + t.isEnabledOnSide(side)));
-				}
-			}
-		}
-		return false;
-	}
-
 	protected boolean canConnectTo(IBlockAccess w, BlockPos thisBlock, IBlockState bs, EnumFacing face,
 			BlockPos otherBlock) {
 		IBlockState other = w.getBlockState(otherBlock);
@@ -71,9 +58,14 @@ public class BlockDIWire extends BlockFrame implements ICableConnector, ITileEnt
 				TileEntity o = w.getTileEntity(otherBlock);
 
 				TileEntityDIWire t = (TileEntityDIWire) w.getTileEntity(thisBlock);
-				if (o instanceof IInventory && t.isEnabledOnSide(face)) {
-					return true;
-				}
+				/* INVENTORY CHECK CODE
+				 * boolean isInventory = false;
+				if (o instanceof IInventory)
+					isInventory = true;
+				if (Loader.isModLoaded(Reference.MODID_BOOKSHELFAPI)) {
+					if (o instanceof Inventory)
+						isInventory = true;
+				}*/
 			} catch (Exception e) {
 
 			}

@@ -1,4 +1,6 @@
 item.screwdriver_item.name=Digital Screwdriver
 tile.di_wire.name=Digital Wire
+tile.di_controller.name=Digital Controller
+tile.di_node.name=Digital Node
 
 itemGroup.tabDigitalInterfaces=Digital Interfaces

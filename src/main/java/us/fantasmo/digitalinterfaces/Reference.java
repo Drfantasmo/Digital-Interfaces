@@ -9,6 +9,7 @@ public class Reference {
 	public static final String SERVER_PROXY_CLASS = "us.fantasmo.digitalinterfaces.proxy.CommonProxy";
 
 	public static final String MODID_COMPUTERCRAFT = "ComputerCraft";
+	public static final String MODID_BOOKSHELFAPI = "bookshelfapi";
 	public static final String DEPENDENCIES = "after:" + MODID_COMPUTERCRAFT;
 
 }

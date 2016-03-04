@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+	"down":  "digitalinterfaces:blocks/di_node_down",
+	"up":    "digitalinterfaces:blocks/di_node_up",
+	"north": "digitalinterfaces:blocks/di_node_side",
+	"south": "digitalinterfaces:blocks/di_node_side",
+	"west":  "digitalinterfaces:blocks/di_node_side",
+	"east":  "digitalinterfaces:blocks/di_node_side",
+        "particle": "digitalinterfaces:materials/iron"
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "normal": { "model": "digitalinterfaces:di_node" },
+
+	"facing=up": { "model": "digitalinterfaces:di_node" },
+        "facing=down": { "model": "digitalinterfaces:di_node", "x": 180 },
+        "facing=north":  { "model": "digitalinterfaces:di_node", "x": 90},
+        "facing=south":  { "model": "digitalinterfaces:di_node", "x": 90 , "y": 180 },
+	"facing=east":  { "model": "digitalinterfaces:di_node", "x": 90 , "y": 90 },
+	"facing=west":    { "model": "digitalinterfaces:di_node", "x": 90, "y": 270 }
+    
+    }
+}

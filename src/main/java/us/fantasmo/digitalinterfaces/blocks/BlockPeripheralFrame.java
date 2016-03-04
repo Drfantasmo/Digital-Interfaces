@@ -13,8 +13,11 @@ import us.fantasmo.digitalinterfaces.tileentity.TileEntityPeripheral;
 
 public class BlockPeripheralFrame extends BlockFrame implements IPeripheralProvider {
 
+	public static BlockPeripheralFrame instance;
+	
 	public BlockPeripheralFrame(Material materialIn) {
 		super(materialIn);
+		instance=this;
 	}
 
 	@Override
